@@ -12,4 +12,4 @@ class Solution:
         type candyType: List[int]) 
         rtype: int
         """
-        return min(len(set(candyType)), len(candyType) >> 1)
+        return min(len(set(candyType)), len(candyType)//2)
