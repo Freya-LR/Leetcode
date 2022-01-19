@@ -1,90 +1,30 @@
-{
-  "nbformat": 4,
-  "nbformat_minor": 0,
-  "metadata": {
-    "colab": {
-      "name": "181. Employees Earning More Than Their Managers.ipynb",
-      "provenance": [],
-      "authorship_tag": "ABX9TyNUnE+/JJuaEn/uc/51U6Fo",
-      "include_colab_link": true
-    },
-    "kernelspec": {
-      "name": "python3",
-      "display_name": "Python 3"
-    },
-    "language_info": {
-      "name": "python"
-    }
-  },
-  "cells": [
-    {
-      "cell_type": "markdown",
-      "metadata": {
-        "id": "view-in-github",
-        "colab_type": "text"
-      },
-      "source": [
-        "<a href=\"https://colab.research.google.com/github/Freya-LR/Leetcode/blob/main/181.Employees%20Earning%20More%20Than%20Their%20Managers.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
-      ]
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "Write an SQL query to find the employees who earn more than their managers.\n",
-        "Input: \n",
-        "Employee table:\n",
-        "\n",
-        "| id | name  | salary | managerId |\n",
-        "\n",
-        "| 1  | Joe   | 70000  | 3         |\n",
-        "\n",
-        "| 2  | Henry | 80000  | 4         |\n",
-        "\n",
-        "| 3  | Sam   | 60000  | Null      |\n",
-        "\n",
-        "| 4  | Max   | 90000  | Null      |\n",
-        "\n",
-        "Output: \n",
-        "\n",
-        "| Employee |\n",
-        "\n",
-        "| Joe      |\n",
-        "\n",
-        "Explanation: Joe is the only employee who earns more than his manager."
-      ],
-      "metadata": {
-        "id": "sfhjg-nbCUYt"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "/* Write your T-SQL query statement below */\n",
-        "SELECT e1.name as Employee \n",
-        "from Employee e1 \n",
-        " join Employee e2 \n",
-        "on e2.id=e1.managerId\n",
-        "where e1.salary > e2.salary"
-      ],
-      "metadata": {
-        "id": "V49TUqJIuvrM"
-      },
-      "execution_count": null,
-      "outputs": []
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Write your MySQL query statement below\n",
-        "select e1.name as Employee from Employee e1, Employee e2\n",
-        "where e1.managerId =e2.id\n",
-        "and e1.salary >e2.salary"
-      ],
-      "metadata": {
-        "id": "A9Uu1ejEv4dI"
-      },
-      "execution_count": null,
-      "outputs": []
-    }
-  ]
-}
+Write an SQL query to find the employees who earn more than their managers.
+Input: 
+Employee table:
++----+-------+--------+-----------+
+| id | name  | salary | managerId |
++----+-------+--------+-----------+
+| 1  | Joe   | 70000  | 3         |
+| 2  | Henry | 80000  | 4         |
+| 3  | Sam   | 60000  | Null      |
+| 4  | Max   | 90000  | Null      |
++----+-------+--------+-----------+
+Output: 
++----------+
+| Employee |
++----------+
+| Joe      |
++----------+
+Explanation: Joe is the only employee who earns more than his manager.
+
+/* Write your T-SQL query statement below */
+SELECT e1.name as Employee 
+from Employee e1 
+ join Employee e2 
+on e2.id=e1.managerId
+where e1.salary > e2.salary
+
+# Write your MySQL query statement below
+select e1.name as Employee from Employee e1, Employee e2
+where e1.managerId =e2.id
+and e1.salary >e2.salary
